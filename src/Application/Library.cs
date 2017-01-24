@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace ClassLibrary
+﻿namespace Application
 {
-    public class Class1
+    public class Healthcheck
     {
         public object GetMe()
         {

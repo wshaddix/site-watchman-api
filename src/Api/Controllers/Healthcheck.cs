@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ClassLibrary;
+using Application;
 
 namespace SiteWatchman.Controllers
 {
@@ -9,7 +9,7 @@ namespace SiteWatchman.Controllers
        [HttpGet]
        public IActionResult Get()
        {
-           var factory = new Class1();
+           var factory = new Healthcheck();
            return new ObjectResult(factory.GetMe());
        }
     }
