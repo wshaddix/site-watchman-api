@@ -1,5 +1,6 @@
 site_name: Site Watchman Api
 pages:
     - Home: index.md
+    - Developers: getting-started-for-developers.md
     - About: about.md
-theme: readthedocs
+theme: material
