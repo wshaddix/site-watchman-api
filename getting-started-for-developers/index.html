@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Developers - Site Watchman Api</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Developers";
+    var mkdocs_page_input_path = "getting-started-for-developers.md";
+    var mkdocs_page_url = "/getting-started-for-developers/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Site Watchman Api</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Developers</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#getting-started-for-developers">Getting Started for Developers</a></li>
+                
+                    <li><a class="toctree-l4" href="#software-installation-requirements">Software Installation Requirements</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-clone-the-project">1. Clone the project</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-start-documentdb-local-emulator">2. Start DocumentDB Local Emulator</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-create-the-sitewatchman-database">3. Create the SiteWatchman database</a></li>
+                
+                    <li><a class="toctree-l4" href="#4-open-the-solution-in-visual-studio">4. Open the solution in Visual Studio</a></li>
+                
+                    <li><a class="toctree-l4" href="#5-ensure-that-the-api-projects-webconfig-is-setup-to-point-to-the-local-documentdb-emulator">5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator</a></li>
+                
+                    <li><a class="toctree-l4" href="#6-create-appsecretsconfig">6. Create AppSecrets.config</a></li>
+                
+                    <li><a class="toctree-l4" href="#7-ensure-that-appsecretsconfig-is-setup-to-authenticate-to-the-local-documentdb-emulator-and-contains-user-credentials-and-api-keys-to-initialize-the-platform">7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform</a></li>
+                
+                    <li><a class="toctree-l4" href="#8-restore-nuget-packages-in-visual-studio">8. Restore NuGet Packages in Visual Studio</a></li>
+                
+                    <li><a class="toctree-l4" href="#9-run-the-synapsemx-platform-code">9. Run the SynapseMX Platform Code</a></li>
+                
+                    <li><a class="toctree-l4" href="#10-open-postman">10. Open Postman</a></li>
+                
+                    <li><a class="toctree-l4" href="#11-import-the-synapsemx-api-postman-collection">11. Import the SynapseMX Api Postman Collection</a></li>
+                
+                    <li><a class="toctree-l4" href="#12-import-the-sitewatchmanworkstation-environment">12. Import the SiteWatchman.Workstation Environment</a></li>
+                
+                    <li><a class="toctree-l4" href="#13-open-the-postman-runner-execute-the-sitewatchman-api-collection-against-the-sitewatchmanworksation-environment">13. Open the Postman Runner &amp; execute the SiteWatchman Api collection against the SiteWatchman.Worksation environment</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Site Watchman Api</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Developers</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>﻿</p>
+<h1 id="getting-started-for-developers">Getting Started for Developers</h1>
+<h3 id="software-installation-requirements">Software Installation Requirements</h3>
+<ul>
+<li><a href="https://git-scm.com/">Git</a>  </li>
+<li><a href="https://www.visualstudio.com/downloads/">Visual Studio Professional</a>  </li>
+<li><a href="https://docs.microsoft.com/en-us/azure/documentdb/documentdb-nosql-local-emulator">DocumentDB Emulator</a>  </li>
+<li><a href="https://github.com/mingaliu/DocumentDBStudio">DocumentDB Studio</a>  </li>
+<li><a href="https://www.getpostman.com/">Postman</a>  </li>
+</ul>
+<h3 id="1-clone-the-project">1. Clone the project</h3>
+<p><code>https://github.com/wshaddix/site-watchman-api.git</code></p>
+<h3 id="2-start-documentdb-local-emulator">2. Start DocumentDB Local Emulator</h3>
+<p><code>Start =&gt; DocumentDb Emulator</code></p>
+<h3 id="3-create-the-sitewatchman-database">3. Create the SiteWatchman database</h3>
+<p>From the <a href="https://github.com/mingaliu/DocumentDBStudio">DocumentDB Studio</a> create a new database named <code>SiteWatchman</code> with the following properties<br />
+- <strong>Database Id:</strong> SiteWatchman 
+- <strong>Collection Id:</strong> default<br />
+- <strong>Throughput:</strong> 10,000<br />
+- <strong>Indexing Policy:</strong> <code>{"Kind": "Range", "dataType": "String", "precision": -1}</code>  </p>
+<h3 id="4-open-the-solution-in-visual-studio">4. Open the solution in Visual Studio</h3>
+<p><code>Start =&gt; Visual Studio 2017</code></p>
+<h3 id="5-ensure-that-the-api-projects-webconfig-is-setup-to-point-to-the-local-documentdb-emulator">5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator</h3>
+<p><code>&lt;add key="DocumentDb.Uri" value="https://localhost:8081" /&gt;</code></p>
+<h3 id="6-create-appsecretsconfig">6. Create AppSecrets.config</h3>
+<p>If you don't already have it create a file <code>\src\Api\AppSecrets.config</code></p>
+<h3 id="7-ensure-that-appsecretsconfig-is-setup-to-authenticate-to-the-local-documentdb-emulator-and-contains-user-credentials-and-api-keys-to-initialize-the-platform">7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform</h3>
+<pre><code>&lt;configuration&gt;
+    &lt;appSettings&gt;
+        &lt;add key=&quot;DocumentDb.AuthKey&quot; value=&quot;C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==&quot; /&gt;
+                &lt;add key=&quot;Postman.ApiKey&quot; value=&quot;&lt;insert your api key here&gt;&quot; /&gt;
+        &lt;add key=&quot;PlatformAdmin.Username&quot; value=&quot;&lt;insert your username here&gt;&quot; /&gt;
+        &lt;add key=&quot;PlatformAdmin.Password&quot; value=&quot;&lt;insert your password here&gt;&quot; /&gt;
+    &lt;/appSettings&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+<h3 id="8-restore-nuget-packages-in-visual-studio">8. Restore NuGet Packages in Visual Studio</h3>
+<p><code>Right click the solution =&gt; Restore NuGet Packages</code></p>
+<h3 id="9-run-the-synapsemx-platform-code">9. Run the SynapseMX Platform Code</h3>
+<p><code>CTRL+F5</code></p>
+<h3 id="10-open-postman">10. Open Postman</h3>
+<p><code>Start =&gt; Postman</code></p>
+<h3 id="11-import-the-synapsemx-api-postman-collection">11. Import the SynapseMX Api Postman Collection</h3>
+<p><code>https://www.getpostman.com/collections/</code></p>
+<h3 id="12-import-the-sitewatchmanworkstation-environment">12. Import the SiteWatchman.Workstation Environment</h3>
+<p>This is a postman environment file. This file contains all of the urls and header values needed for the api requests.</p>
+<h3 id="13-open-the-postman-runner-execute-the-sitewatchman-api-collection-against-the-sitewatchmanworksation-environment">13. Open the Postman Runner &amp; execute the SiteWatchman Api collection against the <code>SiteWatchman.Worksation</code> environment</h3>
+<p>Ensure that all tests pass. If they don't then create a github issue for help</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

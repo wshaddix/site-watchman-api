@@ -21,6 +21,86 @@
             "title": "Project layout"
         },
         {
+            "location": "/getting-started-for-developers/",
+            "text": "\ufeff\n\n\nGetting Started for Developers\n\n\nSoftware Installation Requirements\n\n\n\n\nGit\n  \n\n\nVisual Studio Professional\n  \n\n\nDocumentDB Emulator\n  \n\n\nDocumentDB Studio\n  \n\n\nPostman\n  \n\n\n\n\n1. Clone the project\n\n\nhttps://github.com/wshaddix/site-watchman-api.git\n\n\n2. Start DocumentDB Local Emulator\n\n\nStart => DocumentDb Emulator\n\n\n3. Create the SiteWatchman database\n\n\nFrom the \nDocumentDB Studio\n create a new database named \nSiteWatchman\n with the following properties\n\n- \nDatabase Id:\n SiteWatchman \n- \nCollection Id:\n default\n\n- \nThroughput:\n 10,000\n\n- \nIndexing Policy:\n \n{\"Kind\": \"Range\", \"dataType\": \"String\", \"precision\": -1}\n  \n\n\n4. Open the solution in Visual Studio\n\n\nStart => Visual Studio 2017\n\n\n5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator\n\n\n<add key=\"DocumentDb.Uri\" value=\"https://localhost:8081\" />\n\n\n6. Create AppSecrets.config\n\n\nIf you don't already have it create a file \n\\src\\Api\\AppSecrets.config\n\n\n7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform\n\n\n<configuration>\n    <appSettings>\n        <add key=\"DocumentDb.AuthKey\" value=\"C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==\" />\n                <add key=\"Postman.ApiKey\" value=\"<insert your api key here>\" />\n        <add key=\"PlatformAdmin.Username\" value=\"<insert your username here>\" />\n        <add key=\"PlatformAdmin.Password\" value=\"<insert your password here>\" />\n    </appSettings>\n</configuration>\n\n\n\n\n8. Restore NuGet Packages in Visual Studio\n\n\nRight click the solution => Restore NuGet Packages\n\n\n9. Run the SynapseMX Platform Code\n\n\nCTRL+F5\n\n\n10. Open Postman\n\n\nStart => Postman\n\n\n11. Import the SynapseMX Api Postman Collection\n\n\nhttps://www.getpostman.com/collections/\n\n\n12. Import the SiteWatchman.Workstation Environment\n\n\nThis is a postman environment file. This file contains all of the urls and header values needed for the api requests.\n\n\n13. Open the Postman Runner & execute the SiteWatchman Api collection against the \nSiteWatchman.Worksation\n environment\n\n\nEnsure that all tests pass. If they don't then create a github issue for help",
+            "title": "Developers"
+        },
+        {
+            "location": "/getting-started-for-developers/#getting-started-for-developers",
+            "text": "",
+            "title": "Getting Started for Developers"
+        },
+        {
+            "location": "/getting-started-for-developers/#software-installation-requirements",
+            "text": "Git     Visual Studio Professional     DocumentDB Emulator     DocumentDB Studio     Postman",
+            "title": "Software Installation Requirements"
+        },
+        {
+            "location": "/getting-started-for-developers/#1-clone-the-project",
+            "text": "https://github.com/wshaddix/site-watchman-api.git",
+            "title": "1. Clone the project"
+        },
+        {
+            "location": "/getting-started-for-developers/#2-start-documentdb-local-emulator",
+            "text": "Start => DocumentDb Emulator",
+            "title": "2. Start DocumentDB Local Emulator"
+        },
+        {
+            "location": "/getting-started-for-developers/#3-create-the-sitewatchman-database",
+            "text": "From the  DocumentDB Studio  create a new database named  SiteWatchman  with the following properties \n-  Database Id:  SiteWatchman \n-  Collection Id:  default \n-  Throughput:  10,000 \n-  Indexing Policy:   {\"Kind\": \"Range\", \"dataType\": \"String\", \"precision\": -1}",
+            "title": "3. Create the SiteWatchman database"
+        },
+        {
+            "location": "/getting-started-for-developers/#4-open-the-solution-in-visual-studio",
+            "text": "Start => Visual Studio 2017",
+            "title": "4. Open the solution in Visual Studio"
+        },
+        {
+            "location": "/getting-started-for-developers/#5-ensure-that-the-api-projects-webconfig-is-setup-to-point-to-the-local-documentdb-emulator",
+            "text": "<add key=\"DocumentDb.Uri\" value=\"https://localhost:8081\" />",
+            "title": "5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator"
+        },
+        {
+            "location": "/getting-started-for-developers/#6-create-appsecretsconfig",
+            "text": "If you don't already have it create a file  \\src\\Api\\AppSecrets.config",
+            "title": "6. Create AppSecrets.config"
+        },
+        {
+            "location": "/getting-started-for-developers/#7-ensure-that-appsecretsconfig-is-setup-to-authenticate-to-the-local-documentdb-emulator-and-contains-user-credentials-and-api-keys-to-initialize-the-platform",
+            "text": "<configuration>\n    <appSettings>\n        <add key=\"DocumentDb.AuthKey\" value=\"C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==\" />\n                <add key=\"Postman.ApiKey\" value=\"<insert your api key here>\" />\n        <add key=\"PlatformAdmin.Username\" value=\"<insert your username here>\" />\n        <add key=\"PlatformAdmin.Password\" value=\"<insert your password here>\" />\n    </appSettings>\n</configuration>",
+            "title": "7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform"
+        },
+        {
+            "location": "/getting-started-for-developers/#8-restore-nuget-packages-in-visual-studio",
+            "text": "Right click the solution => Restore NuGet Packages",
+            "title": "8. Restore NuGet Packages in Visual Studio"
+        },
+        {
+            "location": "/getting-started-for-developers/#9-run-the-synapsemx-platform-code",
+            "text": "CTRL+F5",
+            "title": "9. Run the SynapseMX Platform Code"
+        },
+        {
+            "location": "/getting-started-for-developers/#10-open-postman",
+            "text": "Start => Postman",
+            "title": "10. Open Postman"
+        },
+        {
+            "location": "/getting-started-for-developers/#11-import-the-synapsemx-api-postman-collection",
+            "text": "https://www.getpostman.com/collections/",
+            "title": "11. Import the SynapseMX Api Postman Collection"
+        },
+        {
+            "location": "/getting-started-for-developers/#12-import-the-sitewatchmanworkstation-environment",
+            "text": "This is a postman environment file. This file contains all of the urls and header values needed for the api requests.",
+            "title": "12. Import the SiteWatchman.Workstation Environment"
+        },
+        {
+            "location": "/getting-started-for-developers/#13-open-the-postman-runner-execute-the-sitewatchman-api-collection-against-the-sitewatchmanworksation-environment",
+            "text": "Ensure that all tests pass. If they don't then create a github issue for help",
+            "title": "13. Open the Postman Runner &amp; execute the SiteWatchman Api collection against the SiteWatchman.Worksation environment"
+        },
+        {
             "location": "/about/",
             "text": "\ufeff\n\n\nAbout\n\n\nSite Watchman is a service that will allow you to track assets such as api keys, ssl certificates and domain name registrations that expire and will notify you in advance so that you can avoid interruptions and downtime.",
             "title": "About"
