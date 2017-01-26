@@ -1,0 +1,5 @@
+site_name: Site Watchman Api
+pages:
+    - Home: index.md
+    - About: about.md
+theme: readthedocs
