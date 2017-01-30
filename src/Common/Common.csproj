@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\MessageBase.cs" />
     <Compile Include="Application\Queries\EntityListQuery.cs" />
     <Compile Include="Application\Queries\EntityListQueryResult.cs" />
     <Compile Include="Domain\Entity.cs" />
@@ -55,8 +54,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Application\Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

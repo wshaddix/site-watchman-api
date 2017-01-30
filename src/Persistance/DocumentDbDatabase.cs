@@ -16,7 +16,7 @@ using SiteWatchman.Common.Persistance;
 
 namespace SiteWatchman.Persistance
 {
-    public class DocumentDbDatabase : IDatabase
+    public sealed class DocumentDbDatabase : IDatabase
     {
         private readonly string _collectionId;
         private readonly Uri _collectionUri;
@@ -87,17 +87,26 @@ namespace SiteWatchman.Persistance
             return null == jObject ? default(T) : JsonConvert.DeserializeObject<T>(jObject.ToString(), _jsonSerializerSettings);
         }
 
-        public EntityListQueryResult<T> List<T>(EntityListQuery<T> query) where T : Entity
+        async Task<T> IDatabase.GetByIdAsync<T>(string id)
+        {
+            // build the document's self link for the fastest query
+            var selflink = UriFactory.CreateDocumentUri(_databaseId, _collectionId, id);
+
+            var document = await _documentClient.ReadDocumentAsync(selflink).ConfigureAwait(false);
+            return JsonConvert.DeserializeObject<T>(document.Resource.ToString(), _jsonSerializerSettings);
+        }
+
+        public EntityListQueryResult<T> List<T>(Expression<Func<T, bool>> where, string sortBy, int page, int pageSize) where T : Entity
         {
             // we want to inject the entity type into the predicate so we ensure to only return records of the correct type
-            query.Where = InjectEntityTypeFilter(query.Where);
+            where = InjectEntityTypeFilter(where);
 
             // create a query for T that includes the sorting and filtering
             var updatedQuery = _documentClient.CreateDocumentQuery<T>(_collectionUri)
-                .Where(query.Where);
+                .Where(where);
 
             // split the sort string
-            var listSort = query.SortBy.Split(',');
+            var listSort = sortBy.Split(',');
 
             // loop through the sorting options and create a sort expression string from them
             var firstIteration = true;
@@ -148,7 +157,7 @@ namespace SiteWatchman.Persistance
 
             // if page is > 1 then we need to perform two queries. The first to get just the Id's of the documents that match the query and the second
             // to pull the actual documents that match the page/pageSize parameters
-            if (query.Page > 0)
+            if (page > 0)
             {
                 var options = new FeedOptions
                 {
@@ -171,7 +180,7 @@ namespace SiteWatchman.Persistance
                 totalCount = ids.Count;
 
                 // if we are asking for more documents than exist, make sure we don't skip them all
-                var skip = (query.Page - 1) * query.PageSize;
+                var skip = (page - 1) * pageSize;
 
                 // update the original query to just pull all data where the ids are in the id list WE HAVE TO MAINTAIN THE ORIGINAL SORT BY THAT THE
                 // idQuery USES!!!
@@ -179,7 +188,7 @@ namespace SiteWatchman.Persistance
                 var orderBy = idStringQuery.Substring(startIndex, idStringQuery.Length - startIndex - 3);
 
                 stringQuery =
-                    $"SELECT * FROM root WHERE root.id IN ('{string.Join("','", ids.Skip(skip).Take(query.PageSize))}')" + " " + orderBy.Replace("\\\"", "'");
+                    $"SELECT * FROM root WHERE root.id IN ('{string.Join("','", ids.Skip(skip).Take(pageSize))}')" + " " + orderBy.Replace("\\\"", "'");
 
                 var jObjects = _documentClient.CreateDocumentQuery<JObject>(_collectionUri, stringQuery).ToList();
 
@@ -200,7 +209,7 @@ namespace SiteWatchman.Persistance
             }
 
             // calculate the number of total pages
-            var actualPages = totalCount / (double)query.PageSize;
+            var actualPages = totalCount / (double) pageSize;
             var totalPages = (int)Math.Ceiling(actualPages);
 
             return new EntityListQueryResult<T>

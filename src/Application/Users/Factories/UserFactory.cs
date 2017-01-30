@@ -1,18 +1,22 @@
-﻿using SiteWatchman.Application.Users.Models;
-using SiteWatchman.Domain.Users;
+﻿using SiteWatchman.Application.Shared.Models;
+using SiteWatchman.Application.Users.Models;
+using SiteWatchman.Domain;
 
 namespace SiteWatchman.Application.Users.Factories
 {
-    public class UserFactory
+    internal class UserFactory : ModelFactoryBase
     {
         internal static UserModel ConvertToModel(User user)
         {
-            if (user == null) return null;
+            if (null == user) return null;
 
-            return new UserModel
-            {
-                Username = user.Username
-            };
+            var model = MapBaseProperties<UserModel>(user);
+
+            model.Username = user.Username;
+            model.FirstName = user.FirstName;
+            model.Email = user.Email;
+
+            return model;
         }
     }
 }

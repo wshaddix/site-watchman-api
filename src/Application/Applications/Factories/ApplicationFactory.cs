@@ -1,18 +1,20 @@
 ﻿using SiteWatchman.Application.Applications.Models;
+using SiteWatchman.Application.Shared.Models;
 
 namespace SiteWatchman.Application.Applications.Factories
 {
-    internal class ApplicationFactory
+    internal class ApplicationFactory : ModelFactoryBase
     {
-        internal static ApplicationModel ConvertToModel(Domain.Applications.Application application)
+        internal static ApplicationModel ConvertToModel(Domain.Application data)
         {
-            if (application == null) return null;
+            if (null == data) return null;
 
-            return new ApplicationModel
-            {
-                Name = application.Name,
-                ApiKey = application.ApiKey
-            };
+            var model = MapBaseProperties<ApplicationModel>(data);
+
+            model.Name = data.Name;
+            model.ApiKey = data.ApiKey;
+
+            return model;
         }
     }
 }

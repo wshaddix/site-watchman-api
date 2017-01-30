@@ -1,5 +1,4 @@
-﻿
-# Getting Started for Developers
+﻿# Getting Started for Developers
 
 ### Software Installation Requirements  
 - [Git](https://git-scm.com/)  
