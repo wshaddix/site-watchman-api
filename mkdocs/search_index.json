@@ -2,103 +2,228 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "text": "Site Watchman Api Docs",
             "title": "Home"
         },
         {
-            "location": "/#welcome-to-mkdocs",
-            "text": "For full documentation visit  mkdocs.org .",
-            "title": "Welcome to MkDocs"
+            "location": "/#site-watchman-api-docs",
+            "text": "",
+            "title": "Site Watchman Api Docs"
         },
         {
-            "location": "/#commands",
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.",
-            "title": "Commands"
+            "location": "/developers/getting-started-for-developers/",
+            "text": "\ufeff\n\n\nGetting Started for Developers\n\n\nSoftware Installation Requirements\n\n\n\n\nGit\n  \n\n\nVisual Studio Professional\n  \n\n\nDocumentDB Emulator\n  \n\n\nDocumentDB Studio\n  \n\n\nPostman\n  \n\n\n\n\n1. Clone the project\n\n\nhttps://github.com/wshaddix/site-watchman-api.git\n\n\n2. Start DocumentDB Local Emulator\n\n\nStart => DocumentDb Emulator\n\n\n3. Create the SiteWatchman database\n\n\nFrom the \nDocumentDB Studio\n create a new database named \nSiteWatchman\n with the following properties\n\n- \nDatabase Id:\n SiteWatchman \n- \nCollection Id:\n default\n\n- \nThroughput:\n 10,000\n\n- \nIndexing Policy:\n \n{\"Kind\": \"Range\", \"dataType\": \"String\", \"precision\": -1}\n  \n\n\n4. Open the solution in Visual Studio\n\n\nStart => Visual Studio 2017\n\n\n5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator\n\n\n<add key=\"DocumentDb.Uri\" value=\"https://localhost:8081\" />\n\n\n6. Create AppSecrets.config\n\n\nIf you don't already have it create a file \n\\src\\Api\\AppSecrets.config\n\n\n7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform\n\n\n<configuration>\n    <appSettings>\n        <add key=\"DocumentDb.AuthKey\" value=\"C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==\" />\n                <add key=\"Postman.ApiKey\" value=\"<insert your api key here>\" />\n        <add key=\"PlatformAdmin.Username\" value=\"<insert your username here>\" />\n        <add key=\"PlatformAdmin.Password\" value=\"<insert your password here>\" />\n    </appSettings>\n</configuration>\n\n\n\n\n8. Restore NuGet Packages in Visual Studio\n\n\nRight click the solution => Restore NuGet Packages\n\n\n9. Run the SynapseMX Platform Code\n\n\nCTRL+F5\n\n\n10. Open Postman\n\n\nStart => Postman\n\n\n11. Import the SynapseMX Api Postman Collection\n\n\nhttps://www.getpostman.com/collections/1688ffe0e23900107a25\n\n\n12. Import the SiteWatchman.Workstation Environment\n\n\nDownload and import \nthis postman environment\n file. This file contains all of the urls and header values needed for the api requests.\n\n\n13. Open the Postman Runner & execute the SiteWatchman Api collection against the \nSiteWatchman.Worksation\n environment\n\n\nEnsure that all tests pass. If they don't then create a github issue for help",
+            "title": "1. Getting Started"
         },
         {
-            "location": "/#project-layout",
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
-            "title": "Project layout"
-        },
-        {
-            "location": "/getting-started-for-developers/",
-            "text": "\ufeff\n\n\nGetting Started for Developers\n\n\nSoftware Installation Requirements\n\n\n\n\nGit\n  \n\n\nVisual Studio Professional\n  \n\n\nDocumentDB Emulator\n  \n\n\nDocumentDB Studio\n  \n\n\nPostman\n  \n\n\n\n\n1. Clone the project\n\n\nhttps://github.com/wshaddix/site-watchman-api.git\n\n\n2. Start DocumentDB Local Emulator\n\n\nStart => DocumentDb Emulator\n\n\n3. Create the SiteWatchman database\n\n\nFrom the \nDocumentDB Studio\n create a new database named \nSiteWatchman\n with the following properties\n\n- \nDatabase Id:\n SiteWatchman \n- \nCollection Id:\n default\n\n- \nThroughput:\n 10,000\n\n- \nIndexing Policy:\n \n{\"Kind\": \"Range\", \"dataType\": \"String\", \"precision\": -1}\n  \n\n\n4. Open the solution in Visual Studio\n\n\nStart => Visual Studio 2017\n\n\n5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator\n\n\n<add key=\"DocumentDb.Uri\" value=\"https://localhost:8081\" />\n\n\n6. Create AppSecrets.config\n\n\nIf you don't already have it create a file \n\\src\\Api\\AppSecrets.config\n\n\n7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform\n\n\n<configuration>\n    <appSettings>\n        <add key=\"DocumentDb.AuthKey\" value=\"C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==\" />\n                <add key=\"Postman.ApiKey\" value=\"<insert your api key here>\" />\n        <add key=\"PlatformAdmin.Username\" value=\"<insert your username here>\" />\n        <add key=\"PlatformAdmin.Password\" value=\"<insert your password here>\" />\n    </appSettings>\n</configuration>\n\n\n\n\n8. Restore NuGet Packages in Visual Studio\n\n\nRight click the solution => Restore NuGet Packages\n\n\n9. Run the SynapseMX Platform Code\n\n\nCTRL+F5\n\n\n10. Open Postman\n\n\nStart => Postman\n\n\n11. Import the SynapseMX Api Postman Collection\n\n\nhttps://www.getpostman.com/collections/\n\n\n12. Import the SiteWatchman.Workstation Environment\n\n\nThis is a postman environment file. This file contains all of the urls and header values needed for the api requests.\n\n\n13. Open the Postman Runner & execute the SiteWatchman Api collection against the \nSiteWatchman.Worksation\n environment\n\n\nEnsure that all tests pass. If they don't then create a github issue for help",
-            "title": "Developers"
-        },
-        {
-            "location": "/getting-started-for-developers/#getting-started-for-developers",
+            "location": "/developers/getting-started-for-developers/#getting-started-for-developers",
             "text": "",
             "title": "Getting Started for Developers"
         },
         {
-            "location": "/getting-started-for-developers/#software-installation-requirements",
+            "location": "/developers/getting-started-for-developers/#software-installation-requirements",
             "text": "Git     Visual Studio Professional     DocumentDB Emulator     DocumentDB Studio     Postman",
             "title": "Software Installation Requirements"
         },
         {
-            "location": "/getting-started-for-developers/#1-clone-the-project",
+            "location": "/developers/getting-started-for-developers/#1-clone-the-project",
             "text": "https://github.com/wshaddix/site-watchman-api.git",
             "title": "1. Clone the project"
         },
         {
-            "location": "/getting-started-for-developers/#2-start-documentdb-local-emulator",
+            "location": "/developers/getting-started-for-developers/#2-start-documentdb-local-emulator",
             "text": "Start => DocumentDb Emulator",
             "title": "2. Start DocumentDB Local Emulator"
         },
         {
-            "location": "/getting-started-for-developers/#3-create-the-sitewatchman-database",
+            "location": "/developers/getting-started-for-developers/#3-create-the-sitewatchman-database",
             "text": "From the  DocumentDB Studio  create a new database named  SiteWatchman  with the following properties \n-  Database Id:  SiteWatchman \n-  Collection Id:  default \n-  Throughput:  10,000 \n-  Indexing Policy:   {\"Kind\": \"Range\", \"dataType\": \"String\", \"precision\": -1}",
             "title": "3. Create the SiteWatchman database"
         },
         {
-            "location": "/getting-started-for-developers/#4-open-the-solution-in-visual-studio",
+            "location": "/developers/getting-started-for-developers/#4-open-the-solution-in-visual-studio",
             "text": "Start => Visual Studio 2017",
             "title": "4. Open the solution in Visual Studio"
         },
         {
-            "location": "/getting-started-for-developers/#5-ensure-that-the-api-projects-webconfig-is-setup-to-point-to-the-local-documentdb-emulator",
+            "location": "/developers/getting-started-for-developers/#5-ensure-that-the-api-projects-webconfig-is-setup-to-point-to-the-local-documentdb-emulator",
             "text": "<add key=\"DocumentDb.Uri\" value=\"https://localhost:8081\" />",
             "title": "5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator"
         },
         {
-            "location": "/getting-started-for-developers/#6-create-appsecretsconfig",
+            "location": "/developers/getting-started-for-developers/#6-create-appsecretsconfig",
             "text": "If you don't already have it create a file  \\src\\Api\\AppSecrets.config",
             "title": "6. Create AppSecrets.config"
         },
         {
-            "location": "/getting-started-for-developers/#7-ensure-that-appsecretsconfig-is-setup-to-authenticate-to-the-local-documentdb-emulator-and-contains-user-credentials-and-api-keys-to-initialize-the-platform",
+            "location": "/developers/getting-started-for-developers/#7-ensure-that-appsecretsconfig-is-setup-to-authenticate-to-the-local-documentdb-emulator-and-contains-user-credentials-and-api-keys-to-initialize-the-platform",
             "text": "<configuration>\n    <appSettings>\n        <add key=\"DocumentDb.AuthKey\" value=\"C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==\" />\n                <add key=\"Postman.ApiKey\" value=\"<insert your api key here>\" />\n        <add key=\"PlatformAdmin.Username\" value=\"<insert your username here>\" />\n        <add key=\"PlatformAdmin.Password\" value=\"<insert your password here>\" />\n    </appSettings>\n</configuration>",
             "title": "7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform"
         },
         {
-            "location": "/getting-started-for-developers/#8-restore-nuget-packages-in-visual-studio",
+            "location": "/developers/getting-started-for-developers/#8-restore-nuget-packages-in-visual-studio",
             "text": "Right click the solution => Restore NuGet Packages",
             "title": "8. Restore NuGet Packages in Visual Studio"
         },
         {
-            "location": "/getting-started-for-developers/#9-run-the-synapsemx-platform-code",
+            "location": "/developers/getting-started-for-developers/#9-run-the-synapsemx-platform-code",
             "text": "CTRL+F5",
             "title": "9. Run the SynapseMX Platform Code"
         },
         {
-            "location": "/getting-started-for-developers/#10-open-postman",
+            "location": "/developers/getting-started-for-developers/#10-open-postman",
             "text": "Start => Postman",
             "title": "10. Open Postman"
         },
         {
-            "location": "/getting-started-for-developers/#11-import-the-synapsemx-api-postman-collection",
-            "text": "https://www.getpostman.com/collections/",
+            "location": "/developers/getting-started-for-developers/#11-import-the-synapsemx-api-postman-collection",
+            "text": "https://www.getpostman.com/collections/1688ffe0e23900107a25",
             "title": "11. Import the SynapseMX Api Postman Collection"
         },
         {
-            "location": "/getting-started-for-developers/#12-import-the-sitewatchmanworkstation-environment",
-            "text": "This is a postman environment file. This file contains all of the urls and header values needed for the api requests.",
+            "location": "/developers/getting-started-for-developers/#12-import-the-sitewatchmanworkstation-environment",
+            "text": "Download and import  this postman environment  file. This file contains all of the urls and header values needed for the api requests.",
             "title": "12. Import the SiteWatchman.Workstation Environment"
         },
         {
-            "location": "/getting-started-for-developers/#13-open-the-postman-runner-execute-the-sitewatchman-api-collection-against-the-sitewatchmanworksation-environment",
+            "location": "/developers/getting-started-for-developers/#13-open-the-postman-runner-execute-the-sitewatchman-api-collection-against-the-sitewatchmanworksation-environment",
             "text": "Ensure that all tests pass. If they don't then create a github issue for help",
             "title": "13. Open the Postman Runner &amp; execute the SiteWatchman Api collection against the SiteWatchman.Worksation environment"
+        },
+        {
+            "location": "/developers/application-architecture/",
+            "text": "Application Architecture\n\n\nThe SiteWatchman Api follows the practices, patterns and principals prescribed by \nClean Architecture\n as presented by Pluralsight, which as heavily inspired by \nUncle Bob Martin\n who is writing a \nnew book\n on the topic. In addition the naming conventions and code structure is also influenced by \nDomain Driven Design\n practices as well.\n\n\nThe Clean Architecture is used to structure the project and Domain Driven Design practices are used to implement the actual code.\n\n\nDiagram\n\n\n\n\nLayers, Components & Responsibilities\n\n\nApi (Service) Layer\n\n\nThe api layer is what exposes our application to the world. It is the entry point into the system from the api client perspective. We have based our api on \nServiceStack\n.\n\n\nComponents and their responsibilities\n\n\nThe responsibilities of the api are scoped to just those activities that relate to exposing the functionality of the platform to the outside world. This includes defining requests & responses along with enforcing security (authentication, authorization) and capturing broad performance metrics that would be representative of the api client's perspective and enforcing SSL only communication. The following components are a part of the Api Layer:  \n\n\n\n\nRequests\n - blah  \n\n\nResponses\n - blah  \n\n\nPerformance Metrics Attributes\n - blah  \n\n\nRequest Filters\n - blah\n\n\nPerformance Metrics\n\n\nCount of api calls made\n\n\nDuration of api calls\n\n\nAmount of data returned by api calls\n\n\n\n\n\n\nIdentifying the calling application\n\n\nIdentifying the user\n\n\nIdentifying the environment\n\n\nIdentifying the tenant\n\n\nEnforcing SSL\n\n\n\n\n\n\n\n\nApplication Layer\n\n\nComponents and their responsibilities\n\n\nDomain Layer\n\n\nComponents and their responsibilities\n\n\nPersistance Layer\n\n\nComponents and their responsibilities\n\n\nInfrastructure Layer\n\n\nComponents and their responsibilities\n\n\nCommon Layer\n\n\nComponents and their responsibilities",
+            "title": "2. Understanding the Architecture"
+        },
+        {
+            "location": "/developers/application-architecture/#application-architecture",
+            "text": "The SiteWatchman Api follows the practices, patterns and principals prescribed by  Clean Architecture  as presented by Pluralsight, which as heavily inspired by  Uncle Bob Martin  who is writing a  new book  on the topic. In addition the naming conventions and code structure is also influenced by  Domain Driven Design  practices as well.  The Clean Architecture is used to structure the project and Domain Driven Design practices are used to implement the actual code.",
+            "title": "Application Architecture"
+        },
+        {
+            "location": "/developers/application-architecture/#diagram",
+            "text": "",
+            "title": "Diagram"
+        },
+        {
+            "location": "/developers/application-architecture/#layers-components-responsibilities",
+            "text": "",
+            "title": "Layers, Components &amp; Responsibilities"
+        },
+        {
+            "location": "/developers/application-architecture/#api-service-layer",
+            "text": "The api layer is what exposes our application to the world. It is the entry point into the system from the api client perspective. We have based our api on  ServiceStack .",
+            "title": "Api (Service) Layer"
+        },
+        {
+            "location": "/developers/application-architecture/#components-and-their-responsibilities",
+            "text": "The responsibilities of the api are scoped to just those activities that relate to exposing the functionality of the platform to the outside world. This includes defining requests & responses along with enforcing security (authentication, authorization) and capturing broad performance metrics that would be representative of the api client's perspective and enforcing SSL only communication. The following components are a part of the Api Layer:     Requests  - blah    Responses  - blah    Performance Metrics Attributes  - blah    Request Filters  - blah  Performance Metrics  Count of api calls made  Duration of api calls  Amount of data returned by api calls    Identifying the calling application  Identifying the user  Identifying the environment  Identifying the tenant  Enforcing SSL",
+            "title": "Components and their responsibilities"
+        },
+        {
+            "location": "/developers/application-architecture/#application-layer",
+            "text": "",
+            "title": "Application Layer"
+        },
+        {
+            "location": "/developers/application-architecture/#components-and-their-responsibilities_1",
+            "text": "",
+            "title": "Components and their responsibilities"
+        },
+        {
+            "location": "/developers/application-architecture/#domain-layer",
+            "text": "",
+            "title": "Domain Layer"
+        },
+        {
+            "location": "/developers/application-architecture/#components-and-their-responsibilities_2",
+            "text": "",
+            "title": "Components and their responsibilities"
+        },
+        {
+            "location": "/developers/application-architecture/#persistance-layer",
+            "text": "",
+            "title": "Persistance Layer"
+        },
+        {
+            "location": "/developers/application-architecture/#components-and-their-responsibilities_3",
+            "text": "",
+            "title": "Components and their responsibilities"
+        },
+        {
+            "location": "/developers/application-architecture/#infrastructure-layer",
+            "text": "",
+            "title": "Infrastructure Layer"
+        },
+        {
+            "location": "/developers/application-architecture/#components-and-their-responsibilities_4",
+            "text": "",
+            "title": "Components and their responsibilities"
+        },
+        {
+            "location": "/developers/application-architecture/#common-layer",
+            "text": "",
+            "title": "Common Layer"
+        },
+        {
+            "location": "/developers/application-architecture/#components-and-their-responsibilities_5",
+            "text": "",
+            "title": "Components and their responsibilities"
+        },
+        {
+            "location": "/developers/understanding-message-flow/",
+            "text": "Understanding Message Flow",
+            "title": "3. Understanding the Message Flow"
+        },
+        {
+            "location": "/developers/understanding-message-flow/#understanding-message-flow",
+            "text": "",
+            "title": "Understanding Message Flow"
+        },
+        {
+            "location": "/api-clients/register-your-application/",
+            "text": "Registering Your Application",
+            "title": "1. Registering Your Application"
+        },
+        {
+            "location": "/api-clients/register-your-application/#registering-your-application",
+            "text": "",
+            "title": "Registering Your Application"
+        },
+        {
+            "location": "/features/features/",
+            "text": "Organizations\n\n\nTeams\n\n\nUsers\n\n\nAssets\n\n\nNotifications\n\n\nWebhook Subscriptions",
+            "title": "Features"
+        },
+        {
+            "location": "/features/features/#organizations",
+            "text": "",
+            "title": "Organizations"
+        },
+        {
+            "location": "/features/features/#teams",
+            "text": "",
+            "title": "Teams"
+        },
+        {
+            "location": "/features/features/#users",
+            "text": "",
+            "title": "Users"
+        },
+        {
+            "location": "/features/features/#assets",
+            "text": "",
+            "title": "Assets"
+        },
+        {
+            "location": "/features/features/#notifications",
+            "text": "",
+            "title": "Notifications"
+        },
+        {
+            "location": "/features/features/#webhook-subscriptions",
+            "text": "",
+            "title": "Webhook Subscriptions"
         },
         {
             "location": "/about/",

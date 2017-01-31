@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    <title>1. Getting Started - SiteWatchman Api</title>
+
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+
+
+    <link href="../../css/extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">SiteWatchman Api</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">1. Getting Started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../application-architecture/">2. Understanding the Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../understanding-message-flow/">3. Understanding the Message Flow</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Api Clients <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../api-clients/register-your-application/">1. Registering Your Application</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../features/features/">Features</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about/">About</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../application-architecture/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#getting-started-for-developers">Getting Started for Developers</a></li>
+        
+            <li class="second-level"><a href="#software-installation-requirements">Software Installation Requirements</a></li>
+            
+        
+            <li class="second-level"><a href="#1-clone-the-project">1. Clone the project</a></li>
+            
+        
+            <li class="second-level"><a href="#2-start-documentdb-local-emulator">2. Start DocumentDB Local Emulator</a></li>
+            
+        
+            <li class="second-level"><a href="#3-create-the-sitewatchman-database">3. Create the SiteWatchman database</a></li>
+            
+        
+            <li class="second-level"><a href="#4-open-the-solution-in-visual-studio">4. Open the solution in Visual Studio</a></li>
+            
+        
+            <li class="second-level"><a href="#5-ensure-that-the-api-projects-webconfig-is-setup-to-point-to-the-local-documentdb-emulator">5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator</a></li>
+            
+        
+            <li class="second-level"><a href="#6-create-appsecretsconfig">6. Create AppSecrets.config</a></li>
+            
+        
+            <li class="second-level"><a href="#7-ensure-that-appsecretsconfig-is-setup-to-authenticate-to-the-local-documentdb-emulator-and-contains-user-credentials-and-api-keys-to-initialize-the-platform">7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform</a></li>
+            
+        
+            <li class="second-level"><a href="#8-restore-nuget-packages-in-visual-studio">8. Restore NuGet Packages in Visual Studio</a></li>
+            
+        
+            <li class="second-level"><a href="#9-run-the-synapsemx-platform-code">9. Run the SynapseMX Platform Code</a></li>
+            
+        
+            <li class="second-level"><a href="#10-open-postman">10. Open Postman</a></li>
+            
+        
+            <li class="second-level"><a href="#11-import-the-synapsemx-api-postman-collection">11. Import the SynapseMX Api Postman Collection</a></li>
+            
+        
+            <li class="second-level"><a href="#12-import-the-sitewatchmanworkstation-environment">12. Import the SiteWatchman.Workstation Environment</a></li>
+            
+        
+            <li class="second-level"><a href="#13-open-the-postman-runner-execute-the-sitewatchman-api-collection-against-the-sitewatchmanworksation-environment">13. Open the Postman Runner &amp; execute the SiteWatchman Api collection against the SiteWatchman.Worksation environment</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p>﻿</p>
+<h1 id="getting-started-for-developers">Getting Started for Developers</h1>
+<h3 id="software-installation-requirements">Software Installation Requirements</h3>
+<ul>
+<li><a href="https://git-scm.com/">Git</a>  </li>
+<li><a href="https://www.visualstudio.com/downloads/">Visual Studio Professional</a>  </li>
+<li><a href="https://docs.microsoft.com/en-us/azure/documentdb/documentdb-nosql-local-emulator">DocumentDB Emulator</a>  </li>
+<li><a href="https://github.com/mingaliu/DocumentDBStudio">DocumentDB Studio</a>  </li>
+<li><a href="https://www.getpostman.com/">Postman</a>  </li>
+</ul>
+<h3 id="1-clone-the-project">1. Clone the project</h3>
+<p><code>https://github.com/wshaddix/site-watchman-api.git</code></p>
+<h3 id="2-start-documentdb-local-emulator">2. Start DocumentDB Local Emulator</h3>
+<p><code>Start =&gt; DocumentDb Emulator</code></p>
+<h3 id="3-create-the-sitewatchman-database">3. Create the SiteWatchman database</h3>
+<p>From the <a href="https://github.com/mingaliu/DocumentDBStudio">DocumentDB Studio</a> create a new database named <code>SiteWatchman</code> with the following properties<br />
+- <strong>Database Id:</strong> SiteWatchman 
+- <strong>Collection Id:</strong> default<br />
+- <strong>Throughput:</strong> 10,000<br />
+- <strong>Indexing Policy:</strong> <code>{"Kind": "Range", "dataType": "String", "precision": -1}</code>  </p>
+<h3 id="4-open-the-solution-in-visual-studio">4. Open the solution in Visual Studio</h3>
+<p><code>Start =&gt; Visual Studio 2017</code></p>
+<h3 id="5-ensure-that-the-api-projects-webconfig-is-setup-to-point-to-the-local-documentdb-emulator">5. Ensure that the Api project's Web.config is setup to point to the local DocumentDB Emulator</h3>
+<p><code>&lt;add key="DocumentDb.Uri" value="https://localhost:8081" /&gt;</code></p>
+<h3 id="6-create-appsecretsconfig">6. Create AppSecrets.config</h3>
+<p>If you don't already have it create a file <code>\src\Api\AppSecrets.config</code></p>
+<h3 id="7-ensure-that-appsecretsconfig-is-setup-to-authenticate-to-the-local-documentdb-emulator-and-contains-user-credentials-and-api-keys-to-initialize-the-platform">7. Ensure that AppSecrets.config is setup to authenticate to the local DocumentDB Emulator and contains user credentials and api keys to initialize the platform</h3>
+<pre><code>&lt;configuration&gt;
+    &lt;appSettings&gt;
+        &lt;add key=&quot;DocumentDb.AuthKey&quot; value=&quot;C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==&quot; /&gt;
+                &lt;add key=&quot;Postman.ApiKey&quot; value=&quot;&lt;insert your api key here&gt;&quot; /&gt;
+        &lt;add key=&quot;PlatformAdmin.Username&quot; value=&quot;&lt;insert your username here&gt;&quot; /&gt;
+        &lt;add key=&quot;PlatformAdmin.Password&quot; value=&quot;&lt;insert your password here&gt;&quot; /&gt;
+    &lt;/appSettings&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+<h3 id="8-restore-nuget-packages-in-visual-studio">8. Restore NuGet Packages in Visual Studio</h3>
+<p><code>Right click the solution =&gt; Restore NuGet Packages</code></p>
+<h3 id="9-run-the-synapsemx-platform-code">9. Run the SynapseMX Platform Code</h3>
+<p><code>CTRL+F5</code></p>
+<h3 id="10-open-postman">10. Open Postman</h3>
+<p><code>Start =&gt; Postman</code></p>
+<h3 id="11-import-the-synapsemx-api-postman-collection">11. Import the SynapseMX Api Postman Collection</h3>
+<p><code>https://www.getpostman.com/collections/1688ffe0e23900107a25</code></p>
+<h3 id="12-import-the-sitewatchmanworkstation-environment">12. Import the SiteWatchman.Workstation Environment</h3>
+<p>Download and import <a href="../SynapseMX.Dev.postman_environment.json">this postman environment</a> file. This file contains all of the urls and header values needed for the api requests.</p>
+<h3 id="13-open-the-postman-runner-execute-the-sitewatchman-api-collection-against-the-sitewatchmanworksation-environment">13. Open the Postman Runner &amp; execute the SiteWatchman Api collection against the <code>SiteWatchman.Worksation</code> environment</h3>
+<p>Ensure that all tests pass. If they don't then create a github issue for help</p></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+    <script src="../../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

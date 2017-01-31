@@ -4,15 +4,47 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-01-26</lastmod>
+     <lastmod>2017-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
     <url>
-     <loc>/getting-started-for-developers/</loc>
-     <lastmod>2017-01-26</lastmod>
+     <loc>/developers/getting-started-for-developers/</loc>
+     <lastmod>2017-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/developers/application-architecture/</loc>
+     <lastmod>2017-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/developers/understanding-message-flow/</loc>
+     <lastmod>2017-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/api-clients/register-your-application/</loc>
+     <lastmod>2017-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/features/features/</loc>
+     <lastmod>2017-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +52,7 @@
     
     <url>
      <loc>/about/</loc>
-     <lastmod>2017-01-26</lastmod>
+     <lastmod>2017-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

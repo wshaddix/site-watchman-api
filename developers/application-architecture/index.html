@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    <title>2. Understanding the Architecture - SiteWatchman Api</title>
+
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+
+
+    <link href="../../css/extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">SiteWatchman Api</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../getting-started-for-developers/">1. Getting Started</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">2. Understanding the Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../understanding-message-flow/">3. Understanding the Message Flow</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Api Clients <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../api-clients/register-your-application/">1. Registering Your Application</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../features/features/">Features</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about/">About</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../getting-started-for-developers/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../understanding-message-flow/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#application-architecture">Application Architecture</a></li>
+        
+            <li class="second-level"><a href="#diagram">Diagram</a></li>
+            
+        
+            <li class="second-level"><a href="#layers-components-responsibilities">Layers, Components &amp; Responsibilities</a></li>
+            
+                <li class="third-level"><a href="#api-service-layer">Api (Service) Layer</a></li>
+            
+                <li class="third-level"><a href="#application-layer">Application Layer</a></li>
+            
+                <li class="third-level"><a href="#domain-layer">Domain Layer</a></li>
+            
+                <li class="third-level"><a href="#persistance-layer">Persistance Layer</a></li>
+            
+                <li class="third-level"><a href="#infrastructure-layer">Infrastructure Layer</a></li>
+            
+                <li class="third-level"><a href="#common-layer">Common Layer</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="application-architecture">Application Architecture</h1>
+<p>The SiteWatchman Api follows the practices, patterns and principals prescribed by <a href="https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents">Clean Architecture</a> as presented by Pluralsight, which as heavily inspired by <a href="https://twitter.com/unclebobmartin">Uncle Bob Martin</a> who is writing a <a href="https://www.amazon.com/Clean-Architecture-Robert-C-Martin/dp/0134494164">new book</a> on the topic. In addition the naming conventions and code structure is also influenced by <a href="https://www.amazon.com/Patterns-Principles-Practices-Domain-Driven-Design/dp/1118714709/ref=pd_sbs_14_img_1?_encoding=UTF8&amp;psc=1&amp;refRID=GFJH8N8JD8NX1N7AYXT8">Domain Driven Design</a> practices as well.</p>
+<p>The Clean Architecture is used to structure the project and Domain Driven Design practices are used to implement the actual code.</p>
+<h2 id="diagram">Diagram</h2>
+<p><img alt="" src="../..\imgs\application-architecture.png" /></p>
+<h2 id="layers-components-responsibilities">Layers, Components &amp; Responsibilities</h2>
+<h3 id="api-service-layer">Api (Service) Layer</h3>
+<p>The api layer is what exposes our application to the world. It is the entry point into the system from the api client perspective. We have based our api on <a href="http://docs.servicestack.net/">ServiceStack</a>.</p>
+<h4 id="components-and-their-responsibilities">Components and their responsibilities</h4>
+<p>The responsibilities of the api are scoped to just those activities that relate to exposing the functionality of the platform to the outside world. This includes defining requests &amp; responses along with enforcing security (authentication, authorization) and capturing broad performance metrics that would be representative of the api client's perspective and enforcing SSL only communication. The following components are a part of the Api Layer:  </p>
+<ul>
+<li><strong>Requests</strong> - blah  </li>
+<li><strong>Responses</strong> - blah  </li>
+<li><strong>Performance Metrics Attributes</strong> - blah  </li>
+<li><strong>Request Filters</strong> - blah<ul>
+<li>Performance Metrics<ul>
+<li>Count of api calls made</li>
+<li>Duration of api calls</li>
+<li>Amount of data returned by api calls</li>
+</ul>
+</li>
+<li>Identifying the calling application</li>
+<li>Identifying the user</li>
+<li>Identifying the environment</li>
+<li>Identifying the tenant</li>
+<li>Enforcing SSL</li>
+</ul>
+</li>
+</ul>
+<h3 id="application-layer">Application Layer</h3>
+<h4 id="components-and-their-responsibilities_1">Components and their responsibilities</h4>
+<h3 id="domain-layer">Domain Layer</h3>
+<h4 id="components-and-their-responsibilities_2">Components and their responsibilities</h4>
+<h3 id="persistance-layer">Persistance Layer</h3>
+<h4 id="components-and-their-responsibilities_3">Components and their responsibilities</h4>
+<h3 id="infrastructure-layer">Infrastructure Layer</h3>
+<h4 id="components-and-their-responsibilities_4">Components and their responsibilities</h4>
+<h3 id="common-layer">Common Layer</h3>
+<h4 id="components-and-their-responsibilities_5">Components and their responsibilities</h4></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+    <script src="../../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
