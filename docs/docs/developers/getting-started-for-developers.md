@@ -1,4 +1,5 @@
-﻿# Getting Started for Developers
+﻿
+# Getting Started for Developers
 
 ### Software Installation Requirements  
 - [Git](https://git-scm.com/)  
@@ -51,10 +52,10 @@ If you don't already have it create a file `\src\Api\AppSecrets.config`
 `Start => Postman`
 
 ### 11. Import the SynapseMX Api Postman Collection  
-`https://www.getpostman.com/collections/`
+`https://www.getpostman.com/collections/1688ffe0e23900107a25`
 
 ### 12. Import the SiteWatchman.Workstation Environment  
-This is a postman environment file. This file contains all of the urls and header values needed for the api requests.
+Download and import [this postman environment](SynapseMX.Dev.postman_environment.json) file. This file contains all of the urls and header values needed for the api requests.
 
 ### 13. Open the Postman Runner & execute the SiteWatchman Api collection against the `SiteWatchman.Worksation` environment  
 Ensure that all tests pass. If they don't then create a github issue for help

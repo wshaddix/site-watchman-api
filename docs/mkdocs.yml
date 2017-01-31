@@ -1,6 +1,14 @@
-site_name: Site Watchman Api
+site_name: SiteWatchman Api
 pages:
     - Home: index.md
-    - Developers: getting-started-for-developers.md
+    - Developers: 
+      - 1. Getting Started: developers\getting-started-for-developers.md
+      - 2. Understanding the Architecture: developers\application-architecture.md
+      - 3. Understanding the Message Flow : developers\understanding-message-flow.md
+    - Api Clients:
+      - 1. Registering Your Application: api-clients\register-your-application.md
+    - Features: features\features.md
     - About: about.md
-theme: material
+theme_dir: cinder
+extra_css:
+    - css/extra.css
