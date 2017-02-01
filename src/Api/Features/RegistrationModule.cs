@@ -6,14 +6,34 @@ namespace SiteWatchman.Api.Features
     {
         public RegistrationModule() : base("/registrations")
         {
-            Get["/"] = parameters => Gets(parameters);
-            Get["/{id}"] = parameters => "Details of a single registration";
-            Post["/"] = parameters => "Create a new registration";
-            Patch["/{id}"] = parameters => "Patch a single registration";
-            Delete["/{id}"] = parameters => "Delete a single registration";
+            Get["/"] = parameters => HandleGet(parameters);
+            Get["/{id}"] = parameters => HandleList(parameters);
+            Post["/"] = parameters => HandlePost(parameters);
+            Patch["/{id}"] = parameters => HandlePatch(parameters);
+            Delete["/{id}"] = parameters => HandleDelete(parameters);
         }
 
-        private object Gets(DynamicDictionary parameters)
+        private object HandleDelete(DynamicDictionary parameters)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private object HandleGet(DynamicDictionary parameters)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private object HandleList(DynamicDictionary parameters)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private object HandlePatch(DynamicDictionary parameters)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private object HandlePost(DynamicDictionary parameters)
         {
             throw new System.NotImplementedException();
         }

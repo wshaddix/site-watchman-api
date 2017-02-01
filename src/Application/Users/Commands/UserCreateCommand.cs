@@ -2,7 +2,7 @@
 
 namespace SiteWatchman.Application.Users.Commands
 {
-    public class UserCreateCommand : Message<UserCreateCommand, UserCreateCommandValidator>
+    public class UserCreateCommand : MessageBase<UserCreateCommand, UserCreateCommandValidator>
     {
         public string Username;
         public string Email;

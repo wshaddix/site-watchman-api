@@ -65,7 +65,7 @@
     <Compile Include="Shared\Models\ModelBase.cs" />
     <Compile Include="Shared\Models\ModelFactoryBase.cs" />
     <Compile Include="Shared\Services\IService.cs" />
-    <Compile Include="Shared\Messages\Message.cs" />
+    <Compile Include="Shared\Messages\MessageBase.cs" />
     <Compile Include="Shared\Messages\MessageContext.cs" />
     <Compile Include="Shared\Messages\MessageContextMissingException.cs" />
     <Compile Include="Shared\Services\ServiceBase.cs" />

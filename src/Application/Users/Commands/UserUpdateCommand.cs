@@ -2,7 +2,7 @@
 
 namespace SiteWatchman.Application.Users.Commands
 {
-    public class UserUpdateCommand : Message<UserUpdateCommand, UserUpdateCommandValidator>
+    public class UserUpdateCommand : MessageBase<UserUpdateCommand, UserUpdateCommandValidator>
     {
         public string Id;
         public string Username;

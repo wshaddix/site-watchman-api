@@ -2,7 +2,7 @@
 
 namespace SiteWatchman.Application.Applications.Commands
 {
-    public class ApplicationDeleteCommand : Message<ApplicationDeleteCommand, ApplicationDeleteCommandValidator>
+    public class ApplicationDeleteCommand : MessageBase<ApplicationDeleteCommand, ApplicationDeleteCommandValidator>
     {
         public string Id { get; private set; }
 

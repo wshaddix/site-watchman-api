@@ -2,7 +2,7 @@
 
 namespace SiteWatchman.Application.Users.Commands
 {
-    public class UserDeleteCommand : Message<UserDeleteCommand, UserDeleteCommandValidator>
+    public class UserDeleteCommand : MessageBase<UserDeleteCommand, UserDeleteCommandValidator>
     {
         public string Id;
     }

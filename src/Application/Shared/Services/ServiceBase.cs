@@ -23,7 +23,7 @@ namespace SiteWatchman.Application.Shared.Services
         }
 
         protected TReturn Execute<TMessage, TValidator, TReturn>(TMessage instance, Func<TReturn> func)
-                                                                where TMessage : Message<TMessage, TValidator>, new()
+                                                                where TMessage : MessageBase<TMessage, TValidator>, new()
                                                                 where TValidator : AbstractValidator<TMessage>, new()
         {
             // validate that the message context is not null
@@ -37,7 +37,7 @@ namespace SiteWatchman.Application.Shared.Services
         }
 
         protected async Task<TReturn> ExecuteAsync<TMessage, TValidator, TReturn>(TMessage instance, Func<Task<TReturn>> asyncFunc)
-                                                                where TMessage : Message<TMessage, TValidator>, new()
+                                                                where TMessage : MessageBase<TMessage, TValidator>, new()
                                                                 where TValidator : AbstractValidator<TMessage>, new()
         {
             // validate that the message context is not null
@@ -51,7 +51,7 @@ namespace SiteWatchman.Application.Shared.Services
         }
 
         protected async Task ExecuteAsyncNoReturn<TMessage, TValidator>(TMessage instance, Func<Task> asyncFunc)
-                                                                where TMessage : Message<TMessage, TValidator>
+                                                                where TMessage : MessageBase<TMessage, TValidator>
                                                                 where TValidator : AbstractValidator<TMessage>, new()
         {
             // validate that the message context is not null
