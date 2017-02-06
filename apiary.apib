@@ -1,0 +1,106 @@
+FORMAT: 1A
+HOST: http://api.sitewatchman.com/
+
+# The Site Watchman
+
+The Site Watchman is a simple service that allows you to track assets that expire
+and be notified beforehand so that you can take action.
+
+## Registrations [/registrations]
+Registrations represent requests to "sign-up" to the platform. When new users are
+created or added to the platform it is done via registrations. 
+
+### Create a Registration [POST]
+When a registration
+is created, a verification email is sent to the given email address with a token.
+Options for accepting and rejecting the registration are given to the email recipient.
++ Request (application/json)
+
+        {
+            "registration": {
+                "firstName": "John",
+                "email": "john@example.com",
+                "username": "john.smith"
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+    
+        Location: /registrations/1
+        
+    + Body
+    
+            {
+                "registration": {
+                    "id": "abcd"
+                }
+            }
+        
+### Accept a Registration [PUT /registrations/{registration_id}]
+If the email recipient chooses to accept the registration then the platform will
+verify that the registration id matches the email address and will create a new 
+user that now has to go through the password creation process to log in.
++ Request (application/json)
+
+        {
+            "registration": {
+                "id": "{registration_id}",
+                "email": "john@example.com",
+                "action": "accept"
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+    
+        Location: /users/1
+
+### Reject a Registration [PUT]
+If the email recipient chooses to reject the registration then the platform will
+simply delete the existing registration.
++ Request (application/json)
+
+        {
+            "registration": {
+                "id": "{registration_id}",
+                "email": "john@example.com",
+                "action": "reject"
+            }
+        }
+
++ Response 204
+
+## Users [/users]
+### Get a User [GET]
+### Update a User [PUT]
+### Delete a User [DELETE]
+
+## User Sessions [/usersessions]
+### Create a User Session [POST]
+### Get a User Session [GET]
+### List User Sessions [GET]
+### Delete a User Session [DELETE]
+
+## Assets [/assets]
+### Create an Asset [POST]
+### Get an Asset [GET]
+### List Assets [GET]
+### Update an Asset [PUT]
+### Delete an Asset [DELETE]
+
+## Notification Profiles [/notification-profiles]
+### Create a Notification Profile [POST]
+### Get a Notification Profile [GET]
+### List Notification Profiles [GET]
+### Update a Notification Profile [PUT]
+### Delete a Notification Profile [DELETE]
+
+## Notifications [/notifications]
+### Create a Notification [POST]
+### Get a Notification [GET]
+### List Notifications [GET]
+### Update a Notification [PUT]
+### Delete a Notification [DELETE]
