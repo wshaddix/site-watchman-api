@@ -8,7 +8,9 @@ and be notified beforehand so that you can take action.
 
 ## Registrations [/registrations]
 Registrations represent requests to "sign-up" to the platform. When new users are
-created or added to the platform it is done via registrations. 
+created or added to the platform it is done via registrations. Any registrations that
+are not accepted or rejected within 10 days of being created will be deleted by the
+platform.
 
 ### Create a Registration [POST]
 When a registration
@@ -28,7 +30,7 @@ Options for accepting and rejecting the registration are given to the email reci
 
     + Headers
     
-        Location: /registrations/1
+            Location: /registrations/1
         
     + Body
     
@@ -38,7 +40,7 @@ Options for accepting and rejecting the registration are given to the email reci
                 }
             }
         
-### Accept a Registration [PUT /registrations/{registration_id}]
+### Accept a Registration [PATCH /registrations/{registration_id}]
 If the email recipient chooses to accept the registration then the platform will
 verify that the registration id matches the email address and will create a new 
 user that now has to go through the password creation process to log in.
@@ -56,9 +58,9 @@ user that now has to go through the password creation process to log in.
 
     + Headers
     
-        Location: /users/1
+            Location: /users/1
 
-### Reject a Registration [PUT]
+### Reject a Registration [PATCH]
 If the email recipient chooses to reject the registration then the platform will
 simply delete the existing registration.
 + Request (application/json)
@@ -72,35 +74,3 @@ simply delete the existing registration.
         }
 
 + Response 204
-
-## Users [/users]
-### Get a User [GET]
-### Update a User [PUT]
-### Delete a User [DELETE]
-
-## User Sessions [/usersessions]
-### Create a User Session [POST]
-### Get a User Session [GET]
-### List User Sessions [GET]
-### Delete a User Session [DELETE]
-
-## Assets [/assets]
-### Create an Asset [POST]
-### Get an Asset [GET]
-### List Assets [GET]
-### Update an Asset [PUT]
-### Delete an Asset [DELETE]
-
-## Notification Profiles [/notification-profiles]
-### Create a Notification Profile [POST]
-### Get a Notification Profile [GET]
-### List Notification Profiles [GET]
-### Update a Notification Profile [PUT]
-### Delete a Notification Profile [DELETE]
-
-## Notifications [/notifications]
-### Create a Notification [POST]
-### Get a Notification [GET]
-### List Notifications [GET]
-### Update a Notification [PUT]
-### Delete a Notification [DELETE]
